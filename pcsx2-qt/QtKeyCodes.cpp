@@ -13,7 +13,7 @@
 
 #include <QtGui/QKeyEvent>
 
-uint8_t map_text_to_keycode(const QString& text)
+u8 map_text_to_keycode(const QString& text)
 {
 	if (text == "!")
 		return Qt::Key_1;
@@ -566,8 +566,8 @@ const char* InputManager::ConvertHostKeyboardCodeToIcon(u32 code)
 
 u32 QtUtils::KeyEventToCode(const QKeyEvent* ev)
 {
-	QString text = ev->text();
-	uint8_t keycode = map_text_to_keycode(text); // Map special text symbols to keycodes
+	const QString text = ev->text();
+	const u8 keycode = map_text_to_keycode(text); // Map special text symbols to keycodes
 	int key = ev->key();
 
 	if (keycode != 0)
